@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "name": "andi",
+    "email": "andi@gmail.com",
+    "password": "Asd1234"
+  },
+  {
+    "id": "2",
+    "name": "budi",
+    "email": "budi@gmail.com",
+    "password": "Asd1234"
+  },
+  {
+    "id": "3",
+    "name": "caca",
+    "email": "caca@gmail.com",
+    "password": "Asd1234"
+  },
+  { "id": "4", "name": "edi", "email": "edi@gmail.com", "password": "Ads1234" },
+  {
+    "id": "5",
+    "name": "fufufafa",
+    "email": "fufufafa@gmail.com",
+    "password": "Ads1234"
+  }
+]
