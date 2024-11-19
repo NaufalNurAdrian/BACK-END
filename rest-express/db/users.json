@@ -13,7 +13,7 @@
   },
   {
     "id": "3",
-    "name": "caca",
+    "name": "cucu",
     "email": "caca@gmail.com",
     "password": "Asd1234"
   },
@@ -22,6 +22,18 @@
     "id": "5",
     "name": "fufufafa",
     "email": "fufufafa@gmail.com",
-    "password": "Ads1234"
+    "password": "Asd1234"
+  },
+  {
+    "id": "6",
+    "name": "gagak",
+    "email": "gagak@gmail.com",
+    "password": "Asd1234"
+  },
+  {
+    "id": "7",
+    "name": "haha",
+    "email": "haha@gmail.com",
+    "password": "Asd123456"
   }
 ]
