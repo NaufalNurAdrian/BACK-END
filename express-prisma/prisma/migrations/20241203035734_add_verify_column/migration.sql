@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "user" ADD COLUMN     "isSuspend" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "isVerify" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "loginAttempt" INTEGER NOT NULL DEFAULT 0;

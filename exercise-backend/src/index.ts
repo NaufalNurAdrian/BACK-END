@@ -5,7 +5,7 @@ import "dotenv/config";
 import pool from "./config/db";
 import { Expensev2Router } from "./routers/expensev2.router";
 
-const PORT: number = 8000;
+const PORT: number = 8001;
 
 const app: Application = express();
 app.use(express.json());
