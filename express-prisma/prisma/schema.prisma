@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output = "./generate/client"
 }
 
 datasource db {
@@ -41,7 +42,7 @@ model Blog {
   title     String       @unique
   slug      String       @unique
   category  BlogCategory
-  content   Json
+  content   String       @db.Text
   thumbnail String
   createdAd DateTime     @default(now())
   updatedAd DateTime     @updatedAt

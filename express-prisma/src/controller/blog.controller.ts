@@ -1,11 +1,18 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
+import { cloudinaryUpload } from "../services/cloudinary";
+import { Prisma } from "../../prisma/generate/client";
 
 export class BlogController {
   async getBlogs(req: Request, res: Response) {
     try {
+      const { search } = req.query;
+      const filter: Prisma.BlogWhereInput = {};
+      if (search) {
+        filter.title = { contains: search as string, mode: "insensitive" };
+      }
       const blogs = await prisma.blog.findMany({
-        // include: { user: true }
+        where: filter,
         select: {
           id: true,
           title: true,
@@ -38,18 +45,38 @@ export class BlogController {
           category: true,
           thumbnail: true,
           slug: true,
-          createdAd: true,
           content: true,
           user: {
             select: {
               username: true,
-              email: true,
-              avatar:true
             },
           },
         },
       });
       res.status(200).send({ blog });
+    } catch (err) {
+      console.log(err);
+      res.status(400).send(err);
+    }
+  }
+  async createBlog(req: Request, res: Response) {
+    try {
+      if (!req.file) throw { message: "thumbnail empty" };
+      const { secure_url } = await cloudinaryUpload(req.file, "blog");
+      const { title, slug, category, content } = req.body;
+
+      await prisma.blog.create({
+        data: {
+          title,
+          slug,
+          category,
+          content,
+          thumbnail: secure_url,
+          userId: req.user?.id!,
+        },
+      });
+
+      res.status(200).send({ message: "blog created" });
     } catch (err) {
       console.log(err);
       res.status(400).send(err);

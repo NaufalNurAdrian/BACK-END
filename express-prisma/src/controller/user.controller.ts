@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "../../prisma/generate/client";
 import { cloudinaryUpload } from "../services/cloudinary";
 
 export class UserController {
